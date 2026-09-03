@@ -1,0 +1,38 @@
+[
+  {
+    "name": "centralized_coordinate_search_reference",
+    "is_exact": false,
+    "is_upper_bound": false,
+    "uses_true_preference": true,
+    "hidden_preference_access": "evaluation_only_environment_known_mode",
+    "budget": 10,
+    "evaluations": 10,
+    "tolerance": 1e-08,
+    "episode": 0,
+    "scenario_seed": 101
+  },
+  {
+    "name": "centralized_coordinate_search_reference",
+    "is_exact": false,
+    "is_upper_bound": false,
+    "uses_true_preference": true,
+    "hidden_preference_access": "evaluation_only_environment_known_mode",
+    "budget": 10,
+    "evaluations": 10,
+    "tolerance": 1e-08,
+    "episode": 1,
+    "scenario_seed": 202
+  },
+  {
+    "name": "centralized_coordinate_search_reference",
+    "is_exact": false,
+    "is_upper_bound": false,
+    "uses_true_preference": true,
+    "hidden_preference_access": "evaluation_only_environment_known_mode",
+    "budget": 10,
+    "evaluations": 10,
+    "tolerance": 1e-08,
+    "episode": 2,
+    "scenario_seed": 303
+  }
+]

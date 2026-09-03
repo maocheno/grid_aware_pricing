@@ -1,0 +1,19 @@
+{
+  "method": "proposed",
+  "evaluation_mode": "deterministic_demand_beta_mean_or_fixed_actions",
+  "scenario_seeds": [
+    101
+  ],
+  "lower_layer_evaluation": "online",
+  "online_lower_layer_inference": true,
+  "estimator_reset_each_episode": true,
+  "initial_outside_estimate": 13.538897993555434,
+  "training_seed": 5,
+  "hidden_preference_fields_are_evaluation_only": true,
+  "welfare_label": "weighted_hub_profit_welfare",
+  "exact_oracle_gap": null,
+  "output_schema_version": "2.0",
+  "environment_schema_version": 2,
+  "queue_semantics": "dynamic_fluid_carryover_v1",
+  "zip_sha256": "4236beff6643f9f280ed0af2f9a4e798de3945e620f391f01c160f8f85e961ff"
+}

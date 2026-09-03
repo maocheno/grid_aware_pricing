@@ -1,0 +1,17 @@
+seed: 5
+data:
+  mode: york_zip
+  zip_path: ../york_ev_case_study_runnable.zip
+  route_mode: packaged_freeflow
+system:
+  deterministic_demand: true
+training:
+  updates: 3
+  episodes_per_seed: 3
+  seeds: [5]
+  ppo_epochs: 2
+  minibatch_size: 12
+oracle:
+  points_per_hub: 4
+output:
+  directory: outputs/york_smoke

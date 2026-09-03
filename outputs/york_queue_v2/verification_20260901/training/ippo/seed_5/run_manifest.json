@@ -1,0 +1,17 @@
+{
+  "command": "train",
+  "method": "ippo",
+  "seed": 5,
+  "episodes": 3,
+  "episodes_per_update": 1,
+  "updates": 3,
+  "best_selection": "training_batch_mean_return",
+  "best_training_batch_mean_return": -45.56637004289628,
+  "duration_seconds": 20.171141939237714,
+  "checkpoint_compatibility_copy": "checkpoint.pt contains final_checkpoint.pt",
+  "hidden_preference_in_config": false,
+  "output_schema_version": "2.0",
+  "environment_schema_version": 2,
+  "queue_semantics": "dynamic_fluid_carryover_v1",
+  "zip_sha256": "4236beff6643f9f280ed0af2f9a4e798de3945e620f391f01c160f8f85e961ff"
+}

@@ -1,0 +1,322 @@
+seed: 5
+environment_schema_version: 2
+queue_semantics: dynamic_fluid_carryover_v1
+data:
+  mode: york_zip
+  zip_sha256: 4236beff6643f9f280ed0af2f9a4e798de3945e620f391f01c160f8f85e961ff
+  route_mode: packaged_freeflow
+  assumptions:
+  - Traffic observations cover 17 sparse ATC counters; unobserved edges use mapped-edge
+    highway median v/c.
+  - traffic_flow.road_class is a counter road label and is not joined to OSM highway
+    classes.
+  - Hub locations are York Open Data, while facility and energy parameters are provisional
+    assumptions.
+  - Potential demand is ATC car count scaled by the packaged 0.015 ratio and is not
+    observed charging demand.
+  - The road network is a prepared OSM snapshot and packaged free-flow routes are
+    an alternative route model.
+system:
+  periods: 6
+  dt_hours: 1.0
+  n_hubs: 8
+  n_ods: 6
+  deterministic_demand: true
+traffic:
+  route_mode: packaged_freeflow
+  bpr_a: 0.15
+  bpr_b: 4.0
+demand:
+  base_od_counts:
+  - 13.395
+  - 14.565
+  - 18.45
+  - 11.685
+  - 14.265
+  - 15.21
+  energy_kwh:
+  - 25.0
+  - 25.0
+  - 25.0
+  - 25.0
+  - 25.0
+  - 25.0
+  episode_multiplier_mean: 1.0
+  episode_multiplier_std: 0.08
+  episode_multiplier_min: 0.85
+  episode_multiplier_max: 1.15
+  noise_fraction: 0.02
+choice:
+  inverse_cost_sensitivity: 0.55
+  value_of_time_per_hour: 18.0
+  inaccessible_hub_cost: 1000.0
+queue:
+  discipline: dynamic_fluid_carryover
+  semantics: dynamic_fluid_carryover_v1
+  carry_over_between_periods: true
+  finite_waiting_space_enforced: false
+  queue_capacity_vehicles_usage: optional_extension_not_used_in_base_case
+  initial_residual_wait_hours: 0.0
+  initial_queued_energy_kwh: 0.0
+hubs:
+  chargers:
+  - 4.0
+  - 4.0
+  - 6.0
+  - 4.0
+  - 8.0
+  - 8.0
+  - 6.0
+  - 8.0
+  service_time_hours:
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  max_wait_hours:
+  - 0.25
+  - 0.25
+  - 0.25
+  - 0.25
+  - 0.25
+  - 0.25
+  - 0.25
+  - 0.25
+  pv_peak_kwh:
+  - 80.0
+  - 60.0
+  - 60.0
+  - 80.0
+  - 150.0
+  - 200.0
+  - 50.0
+  - 180.0
+  battery_capacity_kwh:
+  - 200.0
+  - 200.0
+  - 300.0
+  - 250.0
+  - 500.0
+  - 600.0
+  - 300.0
+  - 500.0
+  initial_soc:
+  - 0.55
+  - 0.5
+  - 0.6
+  - 0.65
+  - 0.7
+  - 0.75
+  - 0.55
+  - 0.7
+  min_soc:
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  max_soc:
+  - 0.95
+  - 0.95
+  - 0.95
+  - 0.95
+  - 0.95
+  - 0.95
+  - 0.95
+  - 0.95
+  charge_limit_kw:
+  - 100.0
+  - 100.0
+  - 150.0
+  - 100.0
+  - 250.0
+  - 300.0
+  - 150.0
+  - 250.0
+  discharge_limit_kw:
+  - 100.0
+  - 100.0
+  - 150.0
+  - 100.0
+  - 250.0
+  - 300.0
+  - 150.0
+  - 250.0
+  grid_cap_kw:
+  - 250.0
+  - 250.0
+  - 350.0
+  - 250.0
+  - 500.0
+  - 700.0
+  - 350.0
+  - 500.0
+  eta_charge:
+  - 0.95
+  - 0.95
+  - 0.95
+  - 0.95
+  - 0.95
+  - 0.95
+  - 0.95
+  - 0.95
+  eta_discharge:
+  - 0.95
+  - 0.95
+  - 0.95
+  - 0.95
+  - 0.95
+  - 0.95
+  - 0.95
+  - 0.95
+  battery_cost_per_kwh:
+  - 0.03
+  - 0.03
+  - 0.03
+  - 0.03
+  - 0.03
+  - 0.03
+  - 0.03
+  - 0.03
+  pv_cost_per_kwh:
+  - 0.005
+  - 0.005
+  - 0.005
+  - 0.005
+  - 0.005
+  - 0.005
+  - 0.005
+  - 0.005
+  operating_cost_per_request:
+  - 1.5
+  - 1.5
+  - 1.5
+  - 1.5
+  - 1.5
+  - 1.5
+  - 1.5
+  - 1.5
+  welfare_weights:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  queue_capacity_vehicles:
+  - 4.0
+  - 4.0
+  - 6.0
+  - 4.0
+  - 8.0
+  - 8.0
+  - 6.0
+  - 8.0
+  charger_power_kw:
+  - 50.0
+  - 50.0
+  - 50.0
+  - 50.0
+  - 50.0
+  - 100.0
+  - 50.0
+  - 50.0
+price:
+  min:
+  - 0.25
+  - 0.25
+  - 0.25
+  - 0.25
+  - 0.25
+  - 0.25
+  - 0.25
+  - 0.25
+  max:
+  - 0.8
+  - 0.8
+  - 0.8
+  - 0.8
+  - 0.8
+  - 0.8
+  - 0.8
+  - 0.8
+  initial:
+  - 0.45
+  - 0.45
+  - 0.45
+  - 0.45
+  - 0.45
+  - 0.45
+  - 0.45
+  - 0.45
+dispatch:
+  unmet_penalty_per_kwh: 10.0
+  future_battery_value_mode: profile
+  future_battery_value_constant: 0.0
+  feasibility_tolerance: 0.01
+inference:
+  initial_outside_cost: 13.5
+  learning_rate: 0.04
+  min_outside_cost: 10.0
+  max_outside_cost: 22.0
+  rolling_loss_window_periods: 3
+  reset_between_episodes: false
+reward:
+  wait_penalty: 120.0
+  unmet_penalty: 6.0
+  scale: 0.01
+normalization:
+  demand: 104.0
+  wait_hours: 1.0
+  queued_energy_kwh: 761.0
+  backlog_vehicles: 104.0
+  pv_kwh: 110.0
+  battery_kwh: 600.0
+  grid_price: 0.4
+  grid_cap_kwh: 700.0
+  route_time_hours: 1.0
+  outside_cost: 22.0
+network:
+  hidden_sizes:
+  - 128
+  - 128
+  critic_hidden_sizes:
+  - 256
+  - 256
+  beta_epsilon: 0.1
+training:
+  updates: 3
+  episodes_per_seed: 3
+  seeds:
+  - 5
+  rollout_steps: 6
+  ppo_epochs: 2
+  minibatch_size: 12
+  actor_lr: 0.0003
+  critic_lr: 0.001
+  gamma: 0.98
+  gae_lambda: 0.95
+  clip_ratio: 0.2
+  entropy_coef: 0.01
+  entropy_coef_end: 0.001
+  value_coef: 0.5
+  max_grad_norm: 0.5
+  episodes_per_update: 1
+oracle:
+  points_per_hub: 4
+  deterministic_expected_demand: true
+output:
+  directory: outputs/york_smoke
+experiment:
+  method: mappo_no_inference
+  observation_masks: {}
+  outside_mode: fixed

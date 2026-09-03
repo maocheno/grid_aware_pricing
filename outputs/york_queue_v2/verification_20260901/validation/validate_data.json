@@ -1,0 +1,37 @@
+{
+  "mode": "york_zip",
+  "structural_checks": {
+    "36 demand rows": true,
+    "6 OD groups": true,
+    "6 hourly demand periods": true,
+    "48 energy rows": true,
+    "8 hubs": true,
+    "energy hub IDs match": true,
+    "edge nodes exist": true,
+    "hub nodes exist": true,
+    "counter nodes exist": true,
+    "OD nodes exist": true,
+    "route JSON hub keys match": true,
+    "YAML dimensions match": true
+  },
+  "all_structural_checks_pass": true,
+  "deterministic_fixed_tariff_sanity": {
+    "total_demand": 382.83,
+    "peak_hourly_demand": 103.8,
+    "max_wait_minutes": 75.996,
+    "peak_queued_energy_kwh": 649.458,
+    "min_supply_margin_kwh": 152.4,
+    "queue_cleared_from": "2024-09-20 20:00:00"
+  },
+  "zip_sha256": "4236beff6643f9f280ed0af2f9a4e798de3945e620f391f01c160f8f85e961ff",
+  "environment_schema_version": 2,
+  "queue_semantics": "dynamic_fluid_carryover_v1",
+  "output_schema_version": "2.0",
+  "limitations": [
+    "Traffic observations cover 17 sparse ATC counters; unobserved edges use mapped-edge highway median v/c.",
+    "traffic_flow.road_class is a counter road label and is not joined to OSM highway classes.",
+    "Hub locations are York Open Data, while facility and energy parameters are provisional assumptions.",
+    "Potential demand is ATC car count scaled by the packaged 0.015 ratio and is not observed charging demand.",
+    "The road network is a prepared OSM snapshot and packaged free-flow routes are an alternative route model."
+  ]
+}

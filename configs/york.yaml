@@ -1,0 +1,10 @@
+data:
+  mode: york_zip
+  zip_path: ../york_ev_case_study_runnable.zip
+  route_mode: network_bpr
+training:
+  updates: 3000
+  episodes_per_seed: 3000
+  seeds: [11, 29, 47]
+output:
+  directory: outputs/york

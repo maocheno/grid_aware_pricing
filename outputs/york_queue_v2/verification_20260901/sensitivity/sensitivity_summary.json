@@ -1,0 +1,85 @@
+{
+  "command": "sensitivity",
+  "scenario_seeds": [
+    5
+  ],
+  "common_scenario_seeds": true,
+  "results": [
+    {
+      "method": "proposed",
+      "axis": "demand_multiplier",
+      "level": 0.85,
+      "status": "completed"
+    },
+    {
+      "method": "proposed",
+      "axis": "demand_multiplier",
+      "level": 1.0,
+      "status": "completed"
+    },
+    {
+      "method": "proposed",
+      "axis": "demand_multiplier",
+      "level": 1.15,
+      "status": "completed"
+    },
+    {
+      "method": "proposed",
+      "axis": "grid_cap_multiplier",
+      "level": 0.85,
+      "status": "completed"
+    },
+    {
+      "method": "proposed",
+      "axis": "grid_cap_multiplier",
+      "level": 1.0,
+      "status": "completed"
+    },
+    {
+      "method": "proposed",
+      "axis": "grid_cap_multiplier",
+      "level": 1.15,
+      "status": "completed"
+    },
+    {
+      "method": "proposed",
+      "axis": "inverse_cost_sensitivity",
+      "level": 0.22,
+      "status": "completed"
+    },
+    {
+      "method": "proposed",
+      "axis": "inverse_cost_sensitivity",
+      "level": 0.3,
+      "status": "completed"
+    },
+    {
+      "method": "proposed",
+      "axis": "inverse_cost_sensitivity",
+      "level": 0.55,
+      "status": "completed"
+    },
+    {
+      "method": "proposed",
+      "axis": "true_outside_cost",
+      "level": 14.0,
+      "status": "completed"
+    },
+    {
+      "method": "proposed",
+      "axis": "true_outside_cost",
+      "level": 16.5,
+      "status": "completed"
+    },
+    {
+      "method": "proposed",
+      "axis": "true_outside_cost",
+      "level": 19.0,
+      "status": "completed"
+    }
+  ],
+  "output_schema_version": "2.0",
+  "environment_schema_version": 2,
+  "queue_semantics": "dynamic_fluid_carryover_v1",
+  "zip_sha256": "4236beff6643f9f280ed0af2f9a4e798de3945e620f391f01c160f8f85e961ff"
+}

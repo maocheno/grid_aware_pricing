@@ -1,0 +1,102 @@
+seed: 5
+system:
+  periods: 8
+  dt_hours: 1.0
+  n_hubs: 2
+  n_ods: 2
+  deterministic_demand: false
+traffic:
+  free_flow_times: [0.10, 0.12, 0.09]
+  link_capacities: [500, 480, 450]
+  bpr_a: 0.15
+  bpr_b: 4.0
+  routes:
+    - [[0], [1, 2]]
+    - [[0, 2], [1]]
+  base_link_flows: [300, 280, 260]
+  flow_amplitude: 0.25
+  noise_fraction: 0.02
+demand:
+  base_od_counts: [10, 8]
+  daily_amplitude: 0.25
+  noise_fraction: 0.02
+  energy_kwh: [15, 20]
+choice:
+  inverse_cost_sensitivity: 0.35
+  value_of_time_per_hour: 15.0
+  true_outside_cost: 11.0
+hubs:
+  chargers: [6, 5]
+  service_time_hours: [0.75, 0.8]
+  max_wait_hours: [0.5, 0.5]
+  pv_peak_kwh: [80, 65]
+  battery_capacity_kwh: [120, 100]
+  initial_soc: [0.5, 0.5]
+  min_soc: [0.1, 0.1]
+  max_soc: [0.95, 0.95]
+  charge_limit_kw: [45, 40]
+  discharge_limit_kw: [45, 40]
+  grid_cap_kw: [130, 110]
+  eta_charge: [0.95, 0.95]
+  eta_discharge: [0.94, 0.94]
+  battery_cost_per_kwh: [0.025, 0.025]
+  pv_cost_per_kwh: [0.01, 0.01]
+  operating_cost_per_request: [1.0, 1.0]
+  welfare_weights: [1.0, 1.0]
+price:
+  min: [0.18, 0.18]
+  max: [0.65, 0.65]
+profiles:
+  traffic_peak_hours: [8.0, 18.0]
+  traffic_peak_width_hours: [2.2, 2.5]
+  demand_peak_shift_hours: 0.5
+  grid_peak_shift_hours: [0.0, 2.0]
+  grid_wave_weights: [0.45, 0.55]
+  solar_start_hour: 6.0
+  solar_end_hour: 18.0
+  grid_price_base: 0.16
+  grid_price_amplitude: 0.08
+  pv_noise_fraction: 0.01
+dispatch:
+  unmet_penalty_per_kwh: 8.0
+  future_battery_value_mode: spread
+  future_battery_value_constant: 0.0
+  feasibility_tolerance: 1.0e-7
+inference:
+  initial_outside_cost: 8.0
+  learning_rate: 0.02
+  min_outside_cost: 2.0
+  max_outside_cost: 25.0
+reward:
+  wait_penalty: 50.0
+  unmet_penalty: 12.0
+normalization:
+  demand: 20.0
+  wait_hours: 2.0
+  pv_kwh: 100.0
+  battery_kwh: 150.0
+  grid_price: 0.5
+  grid_cap_kwh: 150.0
+  route_time_hours: 1.0
+  outside_cost: 25.0
+network:
+  hidden_sizes: [32, 32]
+  beta_epsilon: 0.1
+training:
+  updates: 3
+  rollout_steps: 8
+  ppo_epochs: 2
+  minibatch_size: 8
+  actor_lr: 0.0005
+  critic_lr: 0.001
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_ratio: 0.2
+  entropy_coef: 0.01
+  value_coef: 0.5
+  max_grad_norm: 0.5
+oracle:
+  points_per_hub: 4
+  deterministic_expected_demand: true
+output:
+  directory: outputs/smoke

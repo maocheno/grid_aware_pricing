@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grid-aware-pricing"
+version = "0.1.0"
+description = "Dual-layer learning simulator for grid-aware EV charging hub pricing"
+requires-python = ">=3.12"
+dependencies = [
+  "numpy",
+  "scipy",
+  "torch",
+  "PyYAML",
+  "pandas",
+  "matplotlib",
+  "networkx",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+grid-pricing = "grid_aware_pricing.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"

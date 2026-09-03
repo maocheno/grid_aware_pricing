@@ -1,0 +1,197 @@
+{
+  "schema_version": "2.0",
+  "output_schema_version": "2.0",
+  "environment_schema_version": 2,
+  "queue_semantics": "dynamic_fluid_carryover_v1",
+  "zip_sha256": "4236beff6643f9f280ed0af2f9a4e798de3945e620f391f01c160f8f85e961ff",
+  "generated_from": "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901",
+  "config": "/efs/guyh29/grid_aware_pricing/configs/york_smoke.yaml",
+  "section_status": "planned_extension_not_present_in_source_pdf",
+  "global_limitations": [
+    "No observed charging transactions, queues, weather, or background electrical load are available.",
+    "Facility and energy parameters are provisional assumptions rather than measured site attributes.",
+    "Traffic conditions are extrapolated from 17 sparse counters to unobserved road links.",
+    "The case study covers a single six-hour day window.",
+    "The centralized coordinate-search reference is neither an exact oracle nor an upper bound."
+  ],
+  "reference_semantics": {
+    "centralized_reference_difference": "reference return - method return (signed)",
+    "centralized_reference_gap": "deprecated non-oracle alias",
+    "exact_oracle_gap": null,
+    "reference_is_upper_bound": false
+  },
+  "benchmark_bundle": {
+    "status": "compatible",
+    "validation_errors": [],
+    "manifest": "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/benchmark/benchmark_manifest.json"
+  },
+  "benchmark_evaluation": {
+    "mode": "deterministic_expected_demand",
+    "stochastic": false,
+    "scenario_seeds": [
+      101,
+      202,
+      303
+    ],
+    "common_scenario_seeds_across_methods": true
+  },
+  "figures": [
+    {
+      "section": "Planned Section V-A",
+      "section_status": "planned_extension_not_present_in_source_pdf",
+      "figure_number": "3",
+      "title": "York study area and infrastructure",
+      "files": [
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/report/fig3_study_area.png"
+      ],
+      "sources": [
+        "/efs/guyh29/grid_aware_pricing/york_ev_case_study_runnable.zip"
+      ],
+      "status": "complete",
+      "missing_items": [],
+      "limitations": [
+        "Counter observations are spatially sparse; facility capacities are provisional."
+      ]
+    },
+    {
+      "section": "Planned Section V-B",
+      "section_status": "planned_extension_not_present_in_source_pdf",
+      "figure_number": "4",
+      "title": "Learning convergence and preference estimation",
+      "files": [
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/report/fig4_learning_convergence.png"
+      ],
+      "sources": [
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/training/proposed/seed_5/training_metrics.csv"
+      ],
+      "status": "partial",
+      "missing_items": [
+        "Only 1 training seed(s); at least 3 required",
+        "Training history has only 3 rows per longest seed"
+      ],
+      "limitations": [
+        "Convergence claims require at least three sufficiently long independent training seeds."
+      ]
+    },
+    {
+      "section": "Planned Section V-C",
+      "section_status": "planned_extension_not_present_in_source_pdf",
+      "figure_number": "5",
+      "title": "Dynamic prices and demand allocation",
+      "files": [
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/report/fig5_dynamic_prices_allocation.png"
+      ],
+      "sources": [
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/benchmark/proposed_mechanism_period_hub.csv",
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/training/proposed/seed_5/run_manifest.json"
+      ],
+      "status": "partial",
+      "missing_items": [
+        "Proposed checkpoint is an undertrained smoke model (3 episodes); mechanism illustration only"
+      ],
+      "limitations": [
+        "Only a deterministic single-episode online replay is a mechanism illustration; it is not the frozen statistical evaluation."
+      ]
+    },
+    {
+      "section": "Planned Section V-C/V-D",
+      "section_status": "planned_extension_not_present_in_source_pdf",
+      "figure_number": "6",
+      "title": "Queue congestion and service quality",
+      "files": [
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/report/fig6_queue_service.png"
+      ],
+      "sources": [
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/benchmark/benchmark_manifest.json",
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/benchmark/benchmark_episodes.csv",
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/benchmark/benchmark_period_hub.csv"
+      ],
+      "status": "partial",
+      "missing_items": [
+        "proposed has fewer than 3 training seeds",
+        "mappo_no_inference has fewer than 3 training seeds",
+        "ippo has fewer than 3 training seeds",
+        "Benchmark uses deterministic expected demand; stochastic multi-scenario evaluation is missing"
+      ],
+      "limitations": [
+        "Queue outcomes are simulator outputs, not observed queue measurements."
+      ]
+    },
+    {
+      "section": "Planned Section V-D",
+      "section_status": "planned_extension_not_present_in_source_pdf",
+      "figure_number": "7",
+      "title": "Energy dispatch and grid interaction",
+      "files": [
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/report/fig7_energy_grid.png"
+      ],
+      "sources": [
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/benchmark/benchmark_manifest.json",
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/benchmark/benchmark_episodes.csv",
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/benchmark/benchmark_period_hub.csv",
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/benchmark/proposed_mechanism_period_hub.csv"
+      ],
+      "status": "partial",
+      "missing_items": [
+        "proposed has fewer than 3 training seeds",
+        "mappo_no_inference has fewer than 3 training seeds",
+        "ippo has fewer than 3 training seeds",
+        "Benchmark uses deterministic expected demand; stochastic multi-scenario evaluation is missing"
+      ],
+      "limitations": [
+        "PV, battery, grid-limit, and background-load assumptions are not site measurements."
+      ]
+    },
+    {
+      "section": "Planned Section V-E",
+      "section_status": "planned_extension_not_present_in_source_pdf",
+      "figure_number": "8",
+      "title": "Benchmark performance and signed centralized-reference difference",
+      "files": [
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/report/fig8_benchmark_performance.png"
+      ],
+      "sources": [
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/benchmark/benchmark_manifest.json",
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/benchmark/benchmark_episodes.csv",
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/benchmark/benchmark_period_hub.csv"
+      ],
+      "status": "partial",
+      "missing_items": [
+        "proposed has fewer than 3 training seeds",
+        "mappo_no_inference has fewer than 3 training seeds",
+        "ippo has fewer than 3 training seeds",
+        "Benchmark uses deterministic expected demand; stochastic multi-scenario evaluation is missing"
+      ],
+      "limitations": [
+        "centralized_reference_difference is signed reference return minus method return; it is not an oracle gap."
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "section": "Planned Section V-E",
+      "section_status": "planned_extension_not_present_in_source_pdf",
+      "table_number": "I",
+      "title": "Main benchmark results",
+      "files": [
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/report/table1_main_results.csv"
+      ],
+      "sources": [
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/benchmark/benchmark_manifest.json",
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/benchmark/benchmark_episodes.csv",
+        "/efs/guyh29/grid_aware_pricing/outputs/york_queue_v2/verification_20260901/benchmark/benchmark_period_hub.csv"
+      ],
+      "status": "partial",
+      "missing_items": [
+        "proposed has fewer than 3 training seeds",
+        "mappo_no_inference has fewer than 3 training seeds",
+        "ippo has fewer than 3 training seeds",
+        "Benchmark uses deterministic expected demand; stochastic multi-scenario evaluation is missing",
+        "Some requested Table I metrics are unavailable; see missing_reason"
+      ],
+      "limitations": [
+        "NaN values are retained explicitly with missing_reason; no unavailable metric is imputed."
+      ]
+    }
+  ]
+}
